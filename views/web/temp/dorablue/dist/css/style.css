@@ -1,0 +1,300 @@
+/*文档列表*/
+body {
+    font: 14px "Hiragino Sans GB", Helvetica, Arial, "Microsoft Yahei";
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1875d1;
+    text-decoration: none;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+em {
+    color: #aaa;
+    font-size: 12px;
+    font-style: normal;
+}
+
+.logo {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    width: 170px;
+}
+
+.left-frame .pagenation {
+    margin: 40px 0px;
+}
+
+.post-meta {
+    padding-left: 0;
+    color: #999;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.post-meta li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.post-meta li a {
+    color: #1875d1
+}
+
+.post {
+    border-bottom: 1px solid #eee;
+
+    list-style: outside none none;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.post:last-child {
+    border: none;
+}
+
+.post h2.post-title {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.post .post-content {
+    color: #787878;
+    line-height: 200%;
+}
+
+.post .span-mark {
+    background-color: #1875d1;
+    color: white;
+    padding: 4px 8px;
+    position: absolute;
+    right: 15px;
+    top: 120px;
+    z-index: 9;
+}
+
+.footer {
+    background: rgba(0, 0, 0, 0) url("../images/footer.jpg") no-repeat scroll right bottom;
+    border-top: 1px solid #ededed;
+    clear: both;
+    color: #5b5b5b;
+    font-size: 12px;
+    padding: 78px 40px;
+}
+
+/*用户注册*/
+.loginBoard, .regBoard, .conformBoard, .reSetPsdBoard {
+    background-color: white;
+    border: 1px solid #d9d9d6;
+    border-radius: 6px;
+    box-shadow: 0 0 6px #aaa;
+    padding: 30px 40px;
+}
+
+.loginBoard, .regBoard label, .conformBoard label, .reSetPsdBoard label {
+    font-weight: normal;
+    font-family: "Microsoft Yahei", "冬青黑体简体中文 w3"
+}
+
+.ulogo img {
+    width: 38px;
+}
+
+.ulogo .dropdown-toggle {
+    padding: 5px 0;
+}
+
+/*消息提醒*/
+.notifyList em, .uInfos em, .setPsd em {
+    font-size: 18px;
+}
+
+.notifyList ul {
+    padding-top: 30px;
+}
+
+.notifyList .noMsg {
+    background-color: #f3f3f3;
+    color: #aaa;
+    margin: 30px;
+    padding: 10px;
+}
+
+/*用户消息*/
+.notifyList {
+}
+
+.notifyList .toolbar {
+    height: 40px;
+    line-height: 36px;
+    background: #f3f3f3;
+    padding: 0 10px;
+}
+
+.notifyList .datalist {
+    padding: 0 10px;
+    margin-top: 10px;
+}
+
+.notifyList .mini {
+    margin-top: 12px;
+    float: left;
+}
+
+.notifyList ul {
+    padding: 15px;
+}
+
+.notifyList ul li {
+    border-bottom: 1px dashed #f0f0f0;
+    line-height: 35px;
+    padding-left: 10px;
+}
+
+.notifyList ul li .title {
+    cursor: pointer;
+    display: inline-block;
+    width: 95%;
+}
+
+.notifyList ul li {
+    font-weight: normal;
+}
+
+.notifyList ul li.noRead i {
+    color: #0da3e2;
+    font-weight: 700;
+}
+
+.notifyList ul li.noRead {
+    font-weight: 700;
+}
+
+.notifyList ul li.noRead a:link {
+    color: #000000
+}
+
+.notifyList ul li span.more {
+    font-weight: normal;
+    padding: 0 22px;
+    display: none;
+}
+
+/*用户信息设置*/
+.uInfos label, .setPsd label {
+    clear: both;
+    color: #aaa;
+    display: block;
+    padding-bottom: 5px;
+}
+
+/*分页*/
+.pagenation {
+    text-align: left;
+}
+
+.pagenation ul {
+    margin: 0;
+    padding: 0;
+}
+
+.pagenation li {
+    float: left;
+    list-style: none;
+    margin: 0 0 10px 10px;
+}
+
+.pagenation li.active a {
+    background-color: #1875d1;
+    color: #fff;
+}
+
+.pagenation li a {
+    background-color: #eee;
+    color: #1875d1;
+    display: block;
+    font-size: 14px;
+    padding: 6px 12px;
+}
+
+/*搜索框*/
+.search {
+    position: relative;
+}
+
+.search .ipt-search {
+    background-color: #eee;
+    border: medium none;
+    border-radius: 38px;
+    font-size: 14px;
+    height: 34px;
+    width: 220px;
+    padding: 8px;
+    margin-right: 10px !important;
+}
+
+.ipt-search {
+    border: 0 none;
+    font-size: 24px;
+    height: 30px;
+    padding: 10px;
+}
+
+.search .btn-search {
+    background-color: transparent;
+    background-image: url("../images/search_s.png");
+    height: 38px;
+    position: absolute;
+    right: 22px;
+    top: 0;
+    width: 42px;
+
+}
+
+.btn-search {
+    background: #dd3f3a url("../images/search.png") no-repeat scroll center center;
+    color: white;
+    cursor: pointer;
+    height: 50px;
+    padding: 0 10px;
+    width: 60px;
+    border: none;
+}
+
+/*分类列表页*/
+.archive-title {
+    font-size: 28px;
+    padding: 0 0 20px;
+}
+
+.msgList {
+}
+
+.msgList .media-logo img {
+    border-radius: 50%;
+}
+
+.msgList h3 {
+    font-weight: normal;
+    font-size: 14px;
+}
+.msgBoard{margin-top: 20px;}
+.msgList .uName,.msgList .reply{color: #1875d1;}
+.giveMsg{margin-top: 30px;margin-bottom: 30px;}
+.giveMsg .sent-btn{margin-top: 10px;}
+.msgList{margin-bottom: 20px;}

@@ -1,0 +1,9 @@
+﻿[{
+    name:  'dora蓝',
+    alias : 'dorablue',
+    version : 'v1.0.0',
+    sImg: '/images/demo.jpg',
+    author: 'doramart',
+    comment : '针对DoraCMS定制的dora新主题，丰富主题库'
+
+}]

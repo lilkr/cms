@@ -1,0 +1,31 @@
+<!--文章推荐模块-->
+<div class="post-list" style="background-color:#ECEFF1;padding: 20px 10px;">
+    <%if(reCommendListData.length>0){%>
+    <h2 align="center">你可能喜欢<em style="font-size: 28px;">&#12288;|&#12288;You Might Also Like</em></h2>
+    <%reCommendListData.forEach(function(item){%>
+    <article class="post">
+        <div class="row">
+            <div class="col-xs-8 col-md-8">
+                <h2 class="post-title">
+                    <a href="/details/<%=item._id%>.html" target="_blank"><%=item.title%></a>
+                </h2>
+                <ul class="post-meta">
+                    <li><%=myDateFormat(item.date)%></li>
+                    |<li><%=item.clickNum%> 次浏览</li>|
+                    <li><a href=""><%=item.tags%></a></li>
+                </ul>
+                <div class="post-content"><%= item.discription%></div>
+            </div>
+            <div class="col-xs-4 col-md-4">
+                <%if(item.isTop == 1){%>
+                <span class="span-mark">推荐</span>
+                <%}%>
+                <img src="<%=item.sImg%>" class="img-responsive" alt="<%=item.title%>"/>
+            </div>
+        </div>
+    </article>
+    <%})%>
+    <%}else{%>
+    <p class="text-center">暂无推荐内容...</p>
+    <%}%>
+</div>

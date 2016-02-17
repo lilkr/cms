@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="col-md-8 col-md-offset-2" style="margin-top: 50px;margin-bottom: 30px;">
+        <div class="row">
+            <form action="/content/searchResult/items">
+                <div class="input-group margin">
+                    <input class="form-control search-input" type="text" placeholder="请输入关键字" name="searchKey" value="<%=pageInfo.searchKey%>">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-danger btn-flat">搜索</button>
+                    </span>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2 min-hight">
+        <div class="row">
+            <% include itemListTemp %>
+            <% include pagination %>
+        </div>
+    </div>
+</div>
