@@ -52,15 +52,15 @@ doraApp.controller('contentList',['$scope','$http',function($scope,$http){
 
 
 //音频列表
-doraApp.controller('contentList',['$scope','$http',function($scope,$http){
+doraApp.controller('audioList',['$scope','$http',function($scope,$http){
     $scope.formData = {};
     //获取文档列表信息
     initPagination($scope,$http);
     //删除文档
-    initDelOption($scope,$http,'您确认要删除选中的文档吗？');
+    initDelOption($scope,$http,'您确认要删除选中的音频吗？');
     // 文章推荐
     $scope.topContent = function(id,m){
-        angularHttpGet($http,"/admin/manage/ContentList/topContent?uid="+id+"&isTop="+m,function(){
+        angularHttpGet($http,"/admin/manage/AudioList/topContent?uid="+id+"&isTop="+m,function(){
             initPagination($scope,$http);
         });
     };

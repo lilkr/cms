@@ -357,6 +357,13 @@ function setAdminPowerTreeData(){
         { id:'contentManage_content_modify', pId:'contentManage_content', name:"修改"},
         { id:'contentManage_content_del', pId:'contentManage_content', name:"删除"},
 
+        { id:'contentManage_audio', pId:'contentManage', name:"音频管理", open:true},
+        { id:'contentManage_audio', pId:'contentManage_audio', name:"新增"},
+        { id:'contentManage_audio', pId:'contentManage_audio', name:"查看"},
+        { id:'contentManage_audio', pId:'contentManage_audio', name:"置顶"},
+        { id:'contentManage_audio', pId:'contentManage_audio', name:"修改"},
+        { id:'contentManage_audio', pId:'contentManage_audio', name:"删除"},
+
         { id:'contentManage_cateGory', pId:'contentManage', name:"文档类别管理", open:true},
         { id:'contentManage_cateGory_add', pId:'contentManage_cateGory', name:"新增"},
         { id:'contentManage_cateGory_view', pId:'contentManage_cateGory', name:"查看"},

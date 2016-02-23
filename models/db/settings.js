@@ -51,6 +51,7 @@ module.exports = {
 
     CONTENTMANAGE : new Array('contentManage','内容管理'), // 后台模块(内容管理)
     CONTENTLIST : new Array('contentManage_content','文档管理'),
+    AUDIOLIST : new Array('contentManage_audio','音频管理'),
     CONTENTCATEGORYS : new Array('contentManage_cateGory','文档类别管理'),
     CONTENTTAGS : new Array('contentManage_tag','文档标签管理'), //标签管理
     CONTENTTEMPS : new Array('contentManage_temp','文档模板管理'), //模板管理
