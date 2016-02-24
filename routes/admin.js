@@ -659,6 +659,14 @@ var returnAdminRouter = function(io) {
     });
 
 
+//音频列表页面
+    router.get('/manage/audioList', function(req, res, next) {
+
+        adminFunc.renderToManagePage(req, res,'manage/audioList',settings.CONTENTLIST);
+
+
+    });
+
 
 //文档添加页面(默认)
     router.get('/manage/content/add/:key', function(req, res, next) {
