@@ -676,8 +676,10 @@ var returnAdminRouter = function(io) {
 
         if(contentType == "plug"){
             targetPath = 'manage/addPlugs';
-        }else{
+        }else if(contentType == "content"){
             targetPath = 'manage/addContent';
+        }else {
+            targetPath = 'manage/addAudio';
         }
 
         res.render(targetPath, adminFunc.setPageInfo(req,res,settings.CONTENTLIST));
