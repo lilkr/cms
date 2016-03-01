@@ -4,4 +4,4 @@ all :
 	npm install
 	bower install
 	grunt
-	node start
+	npm start
