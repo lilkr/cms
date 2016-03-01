@@ -34,6 +34,11 @@ var partials = require('express-partials');
 /*实例化express对象*/
 var app = express();
 
+/*增加七牛模块*/
+var qiniu = require('qiniu');
+var config = require('./config.js');
+
+
 //ueditor注册
 var ueditor = require('ueditor-nodejs');
 app.use('/ueditor/ue', ueditor({//这里的/ueditor/ue是因为文件件重命名为了ueditor,如果没改名，那么应该是/ueditor版本号/ue
@@ -166,6 +171,58 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   siteFunc.renderToTargetPageByType(req,res,'error',{info : '出错啦！',message : err.message, page : 'do500'});
 });
+
+
+app.get('/uptoken', function(req, res, next) {
+    var token = uptoken.token();
+    res.header("Cache-Control", "max-age=0, private, must-revalidate");
+    res.header("Pragma", "no-cache");
+    res.header("Expires", 0);
+    if (token) {
+        res.json({
+            uptoken: token
+        });
+    }
+});
+
+app.post('/downtoken', function(req, res) {
+
+    var key = req.body.key,
+        domain = req.body.domain;
+
+    //trim 'http://'
+    if (domain.indexOf('http://') != -1) {
+        domain = domain.substr(7);
+    }
+    //trim 'https://'
+    if (domain.indexOf('https://') != -1) {
+        domain = domain.substr(8);
+    }
+    //trim '/' if the domain's last char is '/'
+    if (domain.lastIndexOf('/') === domain.length - 1) {
+        domain = domain.substr(0, domain.length - 1);
+    }
+
+    var baseUrl = qiniu.rs.makeBaseUrl(domain, key);
+    var deadline = 3600 + Math.floor(Date.now() / 1000);
+
+    baseUrl += '?e=' + deadline;
+    var signature = qiniu.util.hmacSha1(baseUrl, config.SECRET_KEY);
+    var encodedSign = qiniu.util.base64ToUrlSafe(signature);
+    var downloadToken = config.ACCESS_KEY + ':' + encodedSign;
+
+    if (downloadToken) {
+        res.json({
+            downtoken: downloadToken,
+            url: baseUrl + '&token=' + downloadToken
+        })
+    }
+});
+
+qiniu.conf.ACCESS_KEY = config.ACCESS_KEY;
+qiniu.conf.SECRET_KEY = config.SECRET_KEY;
+
+var uptoken = new qiniu.rs.PutPolicy(config.Bucket_Name);
 
 
 module.exports = app;
