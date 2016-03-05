@@ -684,6 +684,10 @@ var returnAdminRouter = function(io) {
             targetPath = 'manage/addPlugs';
         }else if(contentType == "content"){
             targetPath = 'manage/addContent';
+            res.render(targetPath, {
+              domain: config.Domain,
+              uptoken_url: config.Uptoken_Url
+            });
         }else {
             targetPath = 'manage/addAudio';
 
