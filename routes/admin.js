@@ -56,7 +56,7 @@ var RW = require('../util/randomWord');
 var rw = RW('abcdefghijklmnopqrstuvwxyz1234567890');
 var pngword = new PW(PW.GRAY);
 
-
+var config = require('../config');
 
 var returnAdminRouter = function(io) {
 
@@ -680,6 +680,12 @@ var returnAdminRouter = function(io) {
             targetPath = 'manage/addContent';
         }else {
             targetPath = 'manage/addAudio';
+
+            res.render(targetPath, {
+              domain: config.Domain,
+              uptoken_url: config.Uptoken_Url
+            });
+
         }
 
         res.render(targetPath, adminFunc.setPageInfo(req,res,settings.CONTENTLIST));
