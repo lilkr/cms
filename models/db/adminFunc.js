@@ -39,6 +39,11 @@ var shortid = require('shortid');
 var validator = require("validator");
 var system = require('../../util/system');
 var request = require('request');
+
+var config = require('../../config');
+
+
+
 var adminFunc = {
 
     siteInfos : function (description) {
@@ -86,6 +91,8 @@ var adminFunc = {
         }
 
         return {
+            domain: config.Domain,
+            uptoken_url: config.Uptoken_Url,
             siteInfo : this.siteInfos(module[1]),
             bigCategory : module[0],
             searchKey : searchKey,
