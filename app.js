@@ -67,6 +67,9 @@ app.use(cookieParser(settings.session_secret));
 //解决异步层次混乱问题
 app.use(require('express-promise')());
 
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
+app.use('/src', express.static(__dirname + '/src'));
+
 
 app.use(session({
     secret: settings.session_secret,
