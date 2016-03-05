@@ -56,7 +56,7 @@ var RW = require('../util/randomWord');
 var rw = RW('abcdefghijklmnopqrstuvwxyz1234567890');
 var pngword = new PW(PW.GRAY);
 
-var app = require('../app');
+var app = express();
 
 var config = require('../config');
 
