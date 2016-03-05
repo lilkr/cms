@@ -58,6 +58,17 @@ var pngword = new PW(PW.GRAY);
 
 var app = express();
 
+app.configure(function() {
+        app.use(express.static(__dirname + '/'));
+});
+
+
+app.set('views', __dirname + '/views');
+app.engine('html', require('ejs').renderFile);
+
+app.use(express.urlencoded());
+
+
 var config = require('../config');
 
 app.use('/bower_components', express.static(__dirname + '/../../bower_components'));
