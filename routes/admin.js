@@ -56,19 +56,7 @@ var RW = require('../util/randomWord');
 var rw = RW('abcdefghijklmnopqrstuvwxyz1234567890');
 var pngword = new PW(PW.GRAY);
 
-var app = express();
-
-app.set('views', __dirname + '/views');
-app.engine('html', require('ejs').renderFile);
-
-app.use(express.urlencoded());
-
-
 var config = require('../config');
-
-app.use('/bower_components', express.static(__dirname + '/../../bower_components'));
-app.use('/src', express.static(__dirname + '/../../src'));
-
 
 var returnAdminRouter = function(io) {
 
