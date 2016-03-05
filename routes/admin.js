@@ -58,11 +58,6 @@ var pngword = new PW(PW.GRAY);
 
 var app = express();
 
-app.configure(function() {
-        app.use(express.static(__dirname + '/'));
-});
-
-
 app.set('views', __dirname + '/views');
 app.engine('html', require('ejs').renderFile);
 
