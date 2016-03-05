@@ -667,6 +667,12 @@ var returnAdminRouter = function(io) {
 
     });
 
+//音频添加页面
+    router.get('/manage/audio/add', function(req, res, next) {
+
+        adminFunc.renderToManagePage(req, res,'manage/addAudio',settings.CONTENTLIST);
+
+    });
 
 //文档添加页面(默认)
     router.get('/manage/content/add/:key', function(req, res, next) {
