@@ -44,6 +44,19 @@ var config = require('../../config');
 
 var qiniu = require('qiniu');
 
+adminFunc.get('/uptoken', function(req, res, next) {
+    var token = uptoken.token();
+    res.header("Cache-Control", "max-age=0, private, must-revalidate");
+    res.header("Pragma", "no-cache");
+    res.header("Expires", 0);
+    if (token) {
+        console.log(token);
+        console.log(".....................");
+        res.json({
+            uptoken: token
+        });
+    }
+});
 
 
 qiniu.conf.ACCESS_KEY = config.ACCESS_KEY;
@@ -345,6 +358,8 @@ var adminFunc = {
 
 
 };
+
+var uptoken = new qiniu.rs.PutPolicy(config.Bucket_Name);
 
 
 module.exports = adminFunc;
