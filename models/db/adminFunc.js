@@ -44,7 +44,9 @@ var config = require('../../config');
 
 var qiniu = require('qiniu');
 
-adminFunc.get('/uptoken', function(req, res, next) {
+var app = express();
+
+app.get('/uptoken', function(req, res, next) {
     var token = uptoken.token();
     res.header("Cache-Control", "max-age=0, private, must-revalidate");
     res.header("Pragma", "no-cache");
