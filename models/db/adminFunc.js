@@ -42,6 +42,15 @@ var request = require('request');
 
 var config = require('../../config');
 
+var qiniu = require('qiniu');
+
+
+qiniu.conf.ACCESS_KEY = config.ACCESS_KEY;
+qiniu.conf.SECRET_KEY = config.SECRET_KEY;
+
+var uptoken = new qiniu.rs.PutPolicy(config.Bucket_Name);
+
+
 
 
 var adminFunc = {
