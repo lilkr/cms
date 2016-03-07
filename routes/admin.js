@@ -63,7 +63,7 @@ app.use('/src', express.static(__dirname + '/../src'));
 
 
 var config = require('../config');
-var qiniu = require('../qiniu');
+var qiniu = require('qiniu');
 
 
 qiniu.conf.ACCESS_KEY = config.ACCESS_KEY;
