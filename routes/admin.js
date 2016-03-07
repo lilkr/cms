@@ -705,9 +705,21 @@ var returnAdminRouter = function(io) {
             console.log("1~~~~~~~~~~~~~~~~~~~~~~~~~");
             targetPath = 'manage/addAudio';
         res.render(targetPath, adminFunc.setPageInfoTest(req,res));
-        } else {
+        } else if(contentType == "uptoken"){
             console.log("2................");
             console.log(contentType);
+
+            var token = uptoken.token();
+            res.header("Cache-Control", "max-age=0, private, must-revalidate");
+            res.header("Pragma", "no-cache");
+            res.header("Expires", 0);
+            if (token) {
+                console.log("22222222222.........");
+                res.json({
+                    uptoken: token
+                });
+            }
+     
         }
 
 
