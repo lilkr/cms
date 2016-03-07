@@ -532,6 +532,9 @@ function QiniuJsSDK() {
                 ajax.setRequestHeader("If-Modified-Since", "0");
                 ajax.onreadystatechange = function() {
                     if (ajax.readyState === 4 && ajax.status === 200) {
+                        console.log("aaaaaa");
+                        console.log(ajax.responseText);
+ 
                         var res = that.parseJSON(ajax.responseText);
                         that.token = res.uptoken;
                     }

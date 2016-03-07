@@ -121,7 +121,7 @@ var adminFunc = {
     res.header("Expires", 0);
     if (token) {
         console.log(token);
-        console.log("...+++..................");
+        console.log(".....................");
     }
 
 
