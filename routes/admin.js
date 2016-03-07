@@ -704,7 +704,7 @@ var returnAdminRouter = function(io) {
         }else {
             console.log("~~~~~~~~~~~~~~~~~~~~~~~~~");
             targetPath = 'manage/addAudio';
-        res.render(targetPath, adminFunc.setPageInfoTest(req,res));
+         adminFunc.setPageInfoTest(req,res);
         }
 
 
