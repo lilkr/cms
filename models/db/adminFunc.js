@@ -46,19 +46,19 @@ var express = require('express');
 var qiniu = require('qiniu');
 var app = express();
 
-app.get('/uptoken', function(req, res, next) {
-    var token = uptoken.token();
-    res.header("Cache-Control", "max-age=0, private, must-revalidate");
-    res.header("Pragma", "no-cache");
-    res.header("Expires", 0);
-    if (token) {
-        console.log(token);
-        console.log(".....................");
-        res.json({
-            uptoken: token
-        });
-    }
-});
+//app.get('/uptoken', function(req, res, next) {
+//    var token = uptoken.token();
+//    res.header("Cache-Control", "max-age=0, private, must-revalidate");
+//    res.header("Pragma", "no-cache");
+//    res.header("Expires", 0);
+//    if (token) {
+//        console.log(token);
+//        console.log(".....................");
+//        res.json({
+//            uptoken: token
+//        });
+//    }
+//});
 
 
 qiniu.conf.ACCESS_KEY = config.ACCESS_KEY;
@@ -122,14 +122,20 @@ var adminFunc = {
     if (token) {
         console.log(token);
         console.log(".....................");
+        res.json({
+            uptoken: token
+        });
     }
 
 
         return {
             domain: config.Domain,
             uptoken_url: config.Uptoken_Url,
+            siteInfo : this.siteInfos(module[1]),
+            bigCategory : module[0],
             searchKey : searchKey,
-            area : area
+            area : area,
+            currentLink : currentLink
         }
 
     },
