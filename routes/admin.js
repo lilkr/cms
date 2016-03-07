@@ -64,6 +64,18 @@ app.use('/src', express.static(__dirname + '/../src'));
 
 var config = require('../config');
 
+
+qiniu.conf.ACCESS_KEY = config.ACCESS_KEY;
+qiniu.conf.SECRET_KEY = config.SECRET_KEY;
+
+var uptoken = new qiniu.rs.PutPolicy(config.Bucket_Name);
+
+
+app.listen(config.Port, function() {
+        console.log('Listening on port %d', config.Port);
+});
+
+
 var returnAdminRouter = function(io) {
 
     //管理员登录页面
