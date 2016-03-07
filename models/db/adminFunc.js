@@ -104,7 +104,7 @@ var adminFunc = {
         })
     },
 
-    setPageInfoTest : function(req,res,module,currentLink){
+    setPageInfoTest : function(req,res){
 
         var searchKey = '';
         //area是为了独立查询一个表其中的部分数据而设立的参数
@@ -121,21 +121,14 @@ var adminFunc = {
     res.header("Expires", 0);
     if (token) {
         console.log(token);
-        console.log(".....................");
-        res.json({
-            uptoken: token
-        });
+        console.log("...token..................");
     }
 
 
         return {
+            uptoken: token,
             domain: config.Domain,
-            uptoken_url: config.Uptoken_Url,
-            siteInfo : this.siteInfos(module[1]),
-            bigCategory : module[0],
-            searchKey : searchKey,
-            area : area,
-            currentLink : currentLink
+            uptoken_url: config.Uptoken_Url
         }
 
     },
