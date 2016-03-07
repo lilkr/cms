@@ -697,14 +697,15 @@ var returnAdminRouter = function(io) {
 
         if(contentType == "plug"){
             targetPath = 'manage/addPlugs';
+        res.render(targetPath, adminFunc.setPageInfo(req,res,settings.CONTENTLIST));
         }else if(contentType == "content"){
             targetPath = 'manage/addContent';
+        res.render(targetPath, adminFunc.setPageInfo(req,res,settings.CONTENTLIST));
         }else {
             targetPath = 'manage/addAudio';
         res.render(targetPath, adminFunc.setPageInfoTest(req,res,settings.CONTENTLIST));
         }
 
-        res.render(targetPath, adminFunc.setPageInfo(req,res,settings.CONTENTLIST));
 
 
     });

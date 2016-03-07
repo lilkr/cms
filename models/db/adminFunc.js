@@ -114,6 +114,19 @@ var adminFunc = {
             searchKey = params.query.searchKey;
             area = req.query.area;
         }
+        
+            var token = uptoken.token();
+    res.header("Cache-Control", "max-age=0, private, must-revalidate");
+    res.header("Pragma", "no-cache");
+    res.header("Expires", 0);
+    if (token) {
+        console.log(token);
+        console.log(".....................");
+        res.json({
+            uptoken: token
+        });
+    }
+
 
         return {
             domain: config.Domain,
