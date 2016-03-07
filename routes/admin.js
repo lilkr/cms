@@ -701,10 +701,13 @@ var returnAdminRouter = function(io) {
         }else if(contentType == "content"){
             targetPath = 'manage/addContent';
         res.render(targetPath, adminFunc.setPageInfo(req,res,settings.CONTENTLIST));
-        }else {
+        }else if(contentType == "audio"){
             console.log("1~~~~~~~~~~~~~~~~~~~~~~~~~");
             targetPath = 'manage/addAudio';
         res.render(targetPath, adminFunc.setPageInfoTest(req,res));
+        } else {
+            console.log("2................");
+            console.log(contentType);
         }
 
 
