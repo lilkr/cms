@@ -104,6 +104,29 @@ var adminFunc = {
         })
     },
 
+    setPageInfoTest : function(req,res,module,currentLink){
+
+        var searchKey = '';
+        //area是为了独立查询一个表其中的部分数据而设立的参数
+        var area = '';
+        if(req.url){
+            var params = url.parse(req.url,true);
+            searchKey = params.query.searchKey;
+            area = req.query.area;
+        }
+
+        return {
+            domain: config.Domain,
+            uptoken_url: config.Uptoken_Url,
+            siteInfo : this.siteInfos(module[1]),
+            bigCategory : module[0],
+            searchKey : searchKey,
+            area : area,
+            currentLink : currentLink
+        }
+
+    },
+
     setPageInfo : function(req,res,module,currentLink){
 
         var searchKey = '';
