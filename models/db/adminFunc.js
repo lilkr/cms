@@ -44,6 +44,7 @@ var config = require('../../config');
 
 var qiniu = require('qiniu');
 
+var app = require('../../app');
 
 app.get('/uptoken', function(req, res, next) {
     var token = uptoken.token();
