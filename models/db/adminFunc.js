@@ -41,9 +41,10 @@ var system = require('../../util/system');
 var request = require('request');
 
 var config = require('../../config');
+var express = require('express');
 
 var qiniu = require('qiniu');
-var app = require('../../app');
+var app = express();
 
 app.get('/uptoken', function(req, res, next) {
     var token = uptoken.token();
