@@ -702,9 +702,9 @@ var returnAdminRouter = function(io) {
             targetPath = 'manage/addContent';
         res.render(targetPath, adminFunc.setPageInfo(req,res,settings.CONTENTLIST));
         }else {
-            console.log("~~~~~~~~~~~~~~~~~~~~~~~~~");
+            console.log("1~~~~~~~~~~~~~~~~~~~~~~~~~");
             targetPath = 'manage/addAudio';
-         adminFunc.setPageInfoTest(req,res);
+        res.render(targetPath, adminFunc.setPageInfoTest(req,res));
         }
 
 
@@ -712,18 +712,19 @@ var returnAdminRouter = function(io) {
     });
 
 
-//   router.get('/uptoken', function(req, res, next) {
-//        var token = uptoken.token();
-//        res.header("Cache-Control", "max-age=0, private, must-revalidate");
-//        res.header("Pragma", "no-cache");
-//        res.header("Expires", 0);
-//        if (token) {
-//            res.json({
-//                uptoken: token
-//            });
-//        }
-//    });
-// 
+   router.get('/uptoken', function(req, res, next) {
+        var token = uptoken.token();
+        res.header("Cache-Control", "max-age=0, private, must-revalidate");
+        res.header("Pragma", "no-cache");
+        res.header("Expires", 0);
+        if (token) {
+            console.log("22222222222.........");
+            res.json({
+                uptoken: token
+            });
+        }
+    });
+ 
 
 
 //文档编辑页面
