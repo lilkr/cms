@@ -121,14 +121,12 @@ var adminFunc = {
     res.header("Expires", 0);
     if (token) {
         console.log(token);
-        console.log(".....................");
-        res.json({
-            uptoken: token
-        });
+        console.log("...+++..................");
     }
 
 
         return {
+            uptoken: token,
             domain: config.Domain,
             uptoken_url: config.Uptoken_Url,
             siteInfo : this.siteInfos(module[1]),
