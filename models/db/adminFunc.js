@@ -44,19 +44,6 @@ var config = require('../../config');
 
 var qiniu = require('qiniu');
 
-var app = require('../../app');
-
-app.get('/uptoken', function(req, res, next) {
-    var token = uptoken.token();
-    res.header("Cache-Control", "max-age=0, private, must-revalidate");
-    res.header("Pragma", "no-cache");
-    res.header("Expires", 0);
-    if (token) {
-        res.json({
-            uptoken: token
-        });
-    }
-});
 
 
 qiniu.conf.ACCESS_KEY = config.ACCESS_KEY;
