@@ -129,11 +129,9 @@ var adminFunc = {
             uptoken: token,
             domain: config.Domain,
             uptoken_url: config.Uptoken_Url,
-            siteInfo : this.siteInfos(module[1]),
             bigCategory : module[0],
             searchKey : searchKey,
-            area : area,
-            currentLink : currentLink
+            area : area
         }
 
     },
