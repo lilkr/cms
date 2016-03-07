@@ -711,18 +711,18 @@ var returnAdminRouter = function(io) {
     });
 
 
-   router.get('/uptoken', function(req, res, next) {
-        var token = uptoken.token();
-        res.header("Cache-Control", "max-age=0, private, must-revalidate");
-        res.header("Pragma", "no-cache");
-        res.header("Expires", 0);
-        if (token) {
-            res.json({
-                uptoken: token
-            });
-        }
-    });
- 
+//   router.get('/uptoken', function(req, res, next) {
+//        var token = uptoken.token();
+//        res.header("Cache-Control", "max-age=0, private, must-revalidate");
+//        res.header("Pragma", "no-cache");
+//        res.header("Expires", 0);
+//        if (token) {
+//            res.json({
+//                uptoken: token
+//            });
+//        }
+//    });
+// 
 
 
 //文档编辑页面
