@@ -126,10 +126,8 @@ var adminFunc = {
 
 
         return {
-            uptoken: token,
             domain: config.Domain,
             uptoken_url: config.Uptoken_Url,
-            bigCategory : module[0],
             searchKey : searchKey,
             area : area
         }
