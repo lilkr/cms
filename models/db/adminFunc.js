@@ -46,20 +46,6 @@ var express = require('express');
 var qiniu = require('qiniu');
 var app = express();
 
-//app.get('/uptoken', function(req, res, next) {
-//    var token = uptoken.token();
-//    res.header("Cache-Control", "max-age=0, private, must-revalidate");
-//    res.header("Pragma", "no-cache");
-//    res.header("Expires", 0);
-//    if (token) {
-//        console.log(token);
-//        console.log(".....................");
-//        res.json({
-//            uptoken: token
-//        });
-//    }
-//});
-
 
 qiniu.conf.ACCESS_KEY = config.ACCESS_KEY;
 qiniu.conf.SECRET_KEY = config.SECRET_KEY;
@@ -102,35 +88,6 @@ var adminFunc = {
             msgList : this.getMessageList(),
             regUsers : User.find({}).limit(15).sort({'date' : -1})
         })
-    },
-
-    setPageInfoTest : function(req,res){
-
-        var searchKey = '';
-        //area是为了独立查询一个表其中的部分数据而设立的参数
-        var area = '';
-        if(req.url){
-            var params = url.parse(req.url,true);
-            searchKey = params.query.searchKey;
-            area = req.query.area;
-        }
-        
-            var token = uptoken.token();
-    res.header("Cache-Control", "max-age=0, private, must-revalidate");
-    res.header("Pragma", "no-cache");
-    res.header("Expires", 0);
-    if (token) {
-        console.log(token);
-        console.log("...token..................");
-    }
-
-
-        return {
-            uptoken: token,
-            domain: config.Domain,
-            uptoken_url: config.Uptoken_Url
-        }
-
     },
 
     setPageInfo : function(req,res,module,currentLink){
