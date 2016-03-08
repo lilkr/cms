@@ -697,24 +697,20 @@ var returnAdminRouter = function(io) {
 
         if(contentType == "plug"){
             targetPath = 'manage/addPlugs';
-        res.render(targetPath, adminFunc.setPageInfo(req,res,settings.CONTENTLIST));
+            res.render(targetPath, adminFunc.setPageInfo(req,res,settings.CONTENTLIST));
         }else if(contentType == "content"){
             targetPath = 'manage/addContent';
-        res.render(targetPath, adminFunc.setPageInfo(req,res,settings.CONTENTLIST));
+            res.render(targetPath, adminFunc.setPageInfo(req,res,settings.CONTENTLIST));
         }else if(contentType == "audio"){
-            console.log("1~~~~~~~~~~~~~~~~~~~~~~~~~");
             targetPath = 'manage/addAudio';
-        res.render(targetPath, adminFunc.setPageInfoTest(req,res));
+            res.render(targetPath, adminFunc.setPageInfo(req,res,settings.CONTENTLIST));
         } else if(contentType == "uptoken"){
-            console.log("2................");
-            console.log(contentType);
 
             var token = uptoken.token();
             res.header("Cache-Control", "max-age=0, private, must-revalidate");
             res.header("Pragma", "no-cache");
             res.header("Expires", 0);
             if (token) {
-                console.log("22222222222.........");
                 res.json({
                     uptoken: token
                 });
@@ -723,22 +719,9 @@ var returnAdminRouter = function(io) {
         }
 
 
-
     });
 
 
-   router.get('/uptoken', function(req, res, next) {
-        var token = uptoken.token();
-        res.header("Cache-Control", "max-age=0, private, must-revalidate");
-        res.header("Pragma", "no-cache");
-        res.header("Expires", 0);
-        if (token) {
-            console.log("22222222222.........");
-            res.json({
-                uptoken: token
-            });
-        }
-    });
  
 
 
