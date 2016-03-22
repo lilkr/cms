@@ -22,8 +22,8 @@ module.exports = {
 
 
 //    站点基础信息配置
-    SITETITLE : '前端开发俱乐部', // 站点名称
-    SITEDOMAIN : 'http://www.html-js.cn', // 站点域名
+    SITETITLE : 'goandfight', // 站点名称
+    SITEDOMAIN : 'http://www.goandfight.com', // 站点域名
     SITEICP : '粤ICP备15038960号-2', // 站点备案号
     SITEVERSION : 'v1.1.0', // 静态资源版本戳
     SYSTEMMAIL : 'doramart@qq.com', // 管理员个人邮箱
