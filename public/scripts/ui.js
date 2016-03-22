@@ -239,7 +239,7 @@ FileProgress.prototype.setComplete = function(up, info) {
     progressNameTd.append(Wrapper);
 
     if (!isImg) {
-        showImg.attr('src', 'images/default.png');
+        showImg.attr('src', 'http://7xkjke.com1.z0.glb.clouddn.com/lilkr%2Faudio.png');
         Wrapper.addClass('default');
 
         imgWrapper.append(showImg);
