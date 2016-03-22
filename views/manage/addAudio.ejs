@@ -31,17 +31,6 @@
                         name="myForm"
                         ng-submit="processForm(myForm.$valid)"
                         novalidate>
-                        <div class="table table-striped table-hover text-left"   style="margin-top:40px;display:none">
-                            <thead>
-                                <tr>
-                                    <th class="col-md-4">Filename</th>
-                                    <th class="col-md-2">Size</th>
-                                    <th class="col-md-6">Detail</th>
-                                </tr>
-                            </thead>
-                            <tbody id="fsUploadProgress">
-                            </tbody>
-                        </div>
                         <div class="form-group">
                             <label class="control-label col-sm-3">音频标题</label>
                             <div class="col-sm-5">
@@ -50,6 +39,22 @@
 
                             </div>
                         </div>
+
+
+                        <div class="form-group">
+                            <table class="table table-striped table-hover text-left"   style="margin-top:40px;display:none">
+                                <thead>
+                                    <tr>
+                                        <th class="col-md-4">Filename</th>
+                                        <th class="col-md-2">Size</th>
+                                        <th class="col-md-6">Detail</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="fsUploadProgress">
+                                </tbody>
+                            </table>
+                        </div>
+
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" ng-show="getContentState()" ng-click="saveAsDraft()">存为草稿</button>
