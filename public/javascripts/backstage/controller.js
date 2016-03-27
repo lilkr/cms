@@ -468,7 +468,6 @@ doraApp.controller("systemLogs",['$scope','$http',function($scope,$http){
 
 }]);
 
-
 //文档新增/编辑
 doraApp.controller("addContent",['$scope','$http','pageData','getItemService',function($scope,$http,pageData,getItemService){
     $scope.formData = {};
@@ -537,6 +536,67 @@ doraApp.controller("addContent",['$scope','$http','pageData','getItemService',fu
         }else{
             angularHttpPost($http,true,getTargetPostUrl($scope,pageData.bigCategory),$scope.formData,function(data){
                 window.location = "/admin/manage/contentList";
+            });
+        }
+
+    };
+
+    $scope.getContentState = function(){
+        if(!$scope.formData.state && $scope.targetID){
+            return true;
+        }else if($scope.targetID == undefined){
+            return true;
+        }else{
+            return false;
+        }
+    }
+}]);
+
+//音频新增/编辑
+doraApp.controller("addAudio",['$scope','$http','pageData','getItemService',function($scope,$http,pageData,getItemService){
+    $scope.formData = {};
+    // 初始化文章分类
+  //  initTreeDataByType($scope,$http,"contentCategories");
+    // 初始化文章标签
+    initContentTags($scope,$http);
+    
+    // 通过访问地址获取文章id
+    $scope.targetID = window.location.href.split("/")[8];
+    if($scope.targetID){
+        getItemService.itemInfo(pageData.bigCategory,$scope.targetID).success(function(result){
+            $scope.formData = result;
+            initTreeDataByType($scope,$http,"contentCategories");
+            initContentTags($scope,$http);
+            $("#myImg").attr("src",$scope.formData.sImg)
+        })
+    }
+
+    // 添加或修改音频
+    $scope.processForm = function(isValid){
+        $scope.formData.state = true;
+        angularHttpPost($http,isValid,getTargetPostUrl($scope,pageData.bigCategory),$scope.formData,function(data){
+            window.location = "/admin/manage/audioList";
+        });
+    };
+
+    //  存草稿
+    $scope.saveAsDraft = function(){
+        $scope.formData.state = false;
+        var errors;
+        if(!$scope.formData.title){
+            errors = '音频标题必须填写';
+        }
+        if(errors){
+            $.tipsShow({
+                message : errors,
+                type : 'warning' ,
+                callBack : function(){
+                    return;
+                }
+            });
+        }else{
+            angularHttpPost($http,true,getTargetPostUrl($scope,pageData.bigCategory),$scope.formData,function(data){
+                window.location = "/admin/manage/audioList";
             });
         }
 
